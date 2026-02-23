@@ -103,7 +103,6 @@ $(document).ready(function() {
             showResult('Error');
         } else {
             let res = n1 / n2;
-            // Mostrar 4 decimales si no es entero
             showResult(Number.isInteger(res) ? res : res.toFixed(4));
         }
     });
