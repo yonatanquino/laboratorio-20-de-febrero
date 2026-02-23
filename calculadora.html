@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            width: 23%;
+            padding: 12px;
+            margin: 5px 1%;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="button"]:hover {
+            background: #45a049;
+        }
+        input[name="button2"] { background: #2196F3; }
+        input[name="button2"]:hover { background: #1e88e5; }
+        input[name="button3"] { background: #ff9800; }
+        input[name="button3"]:hover { background: #fb8c00; }
+        input[name="button4"] { background: #f44336; }
+        input[name="button4"]:hover { background: #e53935; }
+    </style>
+</head>
+<body>
+
+<h2>Calculadora Simple</h2>
+
+<form name="calculadora">
+    <label>Primer número:</label><br>
+    <input type="text" name="valor1"><br><br>
+    
+    <label>Segundo número:</label><br>
+    <input type="text" name="valor2"><br><br>
+    
+    <input type="button" name="button1" value="+" onclick="sumar()">
+    <input type="button" name="button2" value="-" onclick="restar()">
+    <input type="button" name="button3" value="×" onclick="multiplicar()">
+    <input type="button" name="button4" value="÷" onclick="dividir()"><br><br>
+    
+    <label>Resultado:</label><br>
+    <input type="text" name="resultado" readonly>
+</form>
+
+<script>
+function sumar() {
+    let num1 = parseFloat(document.calculadora.valor1.value) || 0;
+    let num2 = parseFloat(document.calculadora.valor2.value) || 0;
+    let res = num1 + num2;
+    document.calculadora.resultado.value = res;
+}
+
+function restar() {
+    let num1 = parseFloat(document.calculadora.valor1.value) || 0;
+    let num2 = parseFloat(document.calculadora.valor2.value) || 0;
+    let res = num1 - num2;
+    document.calculadora.resultado.value = res;
+}
+
+function multiplicar() {
+    let num1 = parseFloat(document.calculadora.valor1.value) || 0;
+    let num2 = parseFloat(document.calculadora.valor2.value) || 0;
+    let res = num1 * num2;
+    document.calculadora.resultado.value = res;
+}
+
+function dividir() {
+    let num1 = parseFloat(document.calculadora.valor1.value) || 0;
+    let num2 = parseFloat(document.calculadora.valor2.value) || 0;
+    
+    if (num2 === 0) {
+        alert("¡Error! No se puede dividir por cero.");
+        document.calculadora.resultado.value = "Error";
+    } else {
+        let res = num1 / num2;
+        document.calculadora.resultado.value = Number.isInteger(res) ? res : res.toFixed(4);
+    }
+}
+</script>
+
+</body>
+</html>
